@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Henry Le — IT Business Analyst Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --blue:#2563EB;--blue-soft:#3B82F6;--blue-light:#EFF6FF;--blue-border:#BFDBFE;
+      --text:#0F172A;--text-sec:#475569;--muted:#94A3B8;
+      --bg:#FFFFFF;--surface:#F8FAFC;--card:#F1F5F9;--border:#E2E8F0;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
+
+    /* TOPBAR */
+    .topbar{position:fixed;top:0;left:0;right:0;height:56px;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;z-index:100}
+    .topbar-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text);letter-spacing:-0.02em}
+    .topbar-logo span{color:var(--blue)}
+    .topbar-nav{display:flex;gap:2rem}
+    .topbar-nav a{font-size:0.8rem;color:var(--text-sec);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
+    .topbar-nav a:hover{color:var(--blue)}
+    .topbar-cta{background:var(--blue);color:#fff;border:none;padding:7px 18px;border-radius:8px;font-size:0.78rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;text-decoration:none}
+    .topbar-cta:hover{background:#1D4ED8}
+
+    /* HERO */
+    .hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2.5rem 4rem;background:linear-gradient(135deg,#F8FAFC 0%,#EFF6FF 60%,#DBEAFE 100%);position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;border-radius:50%;background:rgba(37,99,235,0.06);pointer-events:none}
+    .hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;border-radius:50%;background:rgba(37,99,235,0.04);pointer-events:none}
+    .hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;border:0.5px solid var(--blue-border);border-radius:20px;padding:5px 14px;font-size:0.72rem;color:var(--blue);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1.5rem;box-shadow:0 1px 4px rgba(37,99,235,0.08)}
+    .dot{width:6px;height:6px;border-radius:50%;background:#22C55E;display:inline-block;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:700;line-height:1.1;letter-spacing:-0.04em;margin-bottom:0.5rem}
+    .hero h1 .accent{color:var(--blue)}
+    .hero-subtitle{font-size:1rem;color:var(--muted);margin-bottom:1.2rem;font-weight:400}
+    .hero-desc{font-size:0.88rem;color:var(--text-sec);line-height:1.8;margin-bottom:2rem;max-width:440px}
+    .hero-btns{display:flex;gap:0.75rem}
+    .btn-primary{background:var(--blue);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:0.82rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;text-decoration:none;display:inline-block}
+    .btn-primary:hover{background:#1D4ED8}
+    .btn-ghost{background:#fff;color:var(--text-sec);border:0.5px solid var(--border);padding:10px 22px;border-radius:8px;font-size:0.82rem;font-weight:400;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;text-decoration:none;display:inline-block}
+    .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+    .hero-right{display:flex;flex-direction:column;gap:1rem}
+    .stat-card{background:#fff;border:0.5px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem}
+    .stat-icon{width:42px;height:42px;border-radius:10px;background:var(--blue-light);border:0.5px solid var(--blue-border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .stat-icon i{font-size:20px;color:var(--blue)}
+    .stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text);line-height:1}
+    .stat-lbl{font-size:0.72rem;color:var(--muted);margin-top:2px}
+    .links-row{display:flex;gap:0.6rem;flex-wrap:wrap}
+    .link-chip{display:flex;align-items:center;gap:5px;padding:6px 12px;background:#fff;border:0.5px solid var(--border);border-radius:8px;font-size:0.75rem;color:var(--text-sec);text-decoration:none;transition:all 0.2s}
+    .link-chip:hover{border-color:var(--blue);color:var(--blue)}
+    .link-chip i{font-size:14px}
+
+    /* SECTIONS */
+    .section{padding:5rem 2.5rem}
+    .section-inner{max-width:1100px;margin:0 auto}
+    .section.alt{background:var(--surface)}
+    .eyebrow{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);font-weight:500;margin-bottom:0.5rem}
+    .sec-title{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-0.03em;color:var(--text);margin-bottom:0.5rem}
+    .sec-sub{font-size:0.88rem;color:var(--muted);margin-bottom:2.5rem}
+
+    /* EXPERIENCE */
+    .exp-grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem}
+    .exp-sticky{position:sticky;top:80px;align-self:start}
+    .exp-notice{margin-top:1.5rem;padding:1rem 1.25rem;background:var(--blue-light);border:0.5px solid var(--blue-border);border-radius:12px}
+    .exp-notice p:first-child{font-size:0.8rem;color:var(--blue);font-weight:500;margin-bottom:0.25rem}
+    .exp-notice p:last-child{font-size:0.82rem;color:var(--text-sec)}
+    .exp-list{display:flex;flex-direction:column}
+    .exp-item{padding:1.5rem 0;border-bottom:0.5px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:start}
+    .exp-item:last-child{border-bottom:none}
+    .exp-icon{width:40px;height:40px;border-radius:10px;background:var(--blue-light);border:0.5px solid var(--blue-border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .exp-icon i{font-size:18px;color:var(--blue)}
+    .exp-meta{font-size:0.72rem;color:var(--muted);margin-bottom:0.25rem}
+    .exp-title{font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.15rem}
+    .exp-org{font-size:0.78rem;color:var(--blue);margin-bottom:0.6rem}
+    .exp-pts{list-style:none;display:flex;flex-direction:column;gap:4px}
+    .exp-pts li{font-size:0.78rem;color:var(--text-sec);padding-left:12px;position:relative;line-height:1.5}
+    .exp-pts li::before{content:'·';position:absolute;left:0;color:var(--blue-soft);font-weight:700}
+
+    /* CASE STUDIES */
+    .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+    .case-card{background:#fff;border:0.5px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow 0.2s,border-color 0.2s}
+    .case-card:hover{box-shadow:0 4px 24px rgba(37,99,235,0.1);border-color:var(--blue-border)}
+    .case-header-band{background:var(--blue-light);padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--blue-border)}
+    .case-tag{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue);font-weight:500;margin-bottom:0.4rem}
+    .case-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;color:var(--text);line-height:1.3}
+    .case-title-link{display:inline-flex;align-items:center;gap:6px;color:var(--text);text-decoration:none;transition:color 0.2s}
+    .case-title-link:hover{color:var(--blue)}
+    .case-title-link i{font-size:14px;color:var(--blue-soft);flex-shrink:0}
+    .case-body{padding:1.25rem 1.5rem}
+    .case-desc{font-size:0.8rem;color:var(--text-sec);line-height:1.7;margin-bottom:1rem}
+    .metrics{display:flex;flex-wrap:wrap;gap:6px}
+    .metric{font-size:0.7rem;padding:3px 10px;border-radius:20px;background:var(--card);border:0.5px solid var(--border);color:var(--text-sec)}
+    .metric strong{color:var(--text);font-weight:500}
+
+    /* SKILLS */
+    .skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .skill-card{background:#fff;border:0.5px solid var(--border);border-radius:14px;padding:1.25rem}
+    .skill-card-title{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue);margin-bottom:0.75rem;font-weight:500;display:flex;align-items:center;gap:6px}
+    .skill-card-title i{font-size:15px}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:0.73rem;color:var(--text-sec);background:var(--surface);border:0.5px solid var(--border);padding:4px 10px;border-radius:6px}
+    a.tag{text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:4px}
+    a.tag:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-light)}
+    a.tag i{font-size:11px}
+    .certs-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:1rem}
+    .cert-chip{display:flex;align-items:center;gap:7px;font-size:0.75rem;color:var(--text-sec);padding:8px 12px;background:#fff;border:0.5px solid var(--border);border-radius:8px;text-decoration:none;transition:all 0.2s;cursor:pointer}
+    .cert-chip:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 2px 10px rgba(37,99,235,0.1)}
+    .cert-chip i{color:var(--blue);font-size:14px;flex-shrink:0}
+    .cert-chip .ti-external-link{margin-left:auto;font-size:12px;color:var(--muted)}
+
+    /* CONTACT */
+    .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+    .contact-info p{font-size:0.88rem;color:var(--text-sec);line-height:1.8;margin-bottom:1.5rem}
+    .contact-links{display:flex;flex-direction:column;gap:0.6rem}
+    .contact-link{display:flex;align-items:center;gap:10px;font-size:0.82rem;color:var(--text-sec);text-decoration:none;padding:10px 14px;border:0.5px solid var(--border);border-radius:10px;background:#fff;transition:all 0.2s}
+    .contact-link:hover{border-color:var(--blue);color:var(--blue)}
+    .contact-link i{font-size:16px;color:var(--blue);flex-shrink:0}
+    .contact-form{background:#fff;border:0.5px solid var(--border);border-radius:16px;padding:2rem}
+    .form-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin-bottom:1.25rem;color:var(--text)}
+    .form-row{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem}
+    .form-label{font-size:0.75rem;color:var(--text-sec);font-weight:500}
+    .form-input{padding:9px 12px;border:0.5px solid var(--border);border-radius:8px;font-size:0.82rem;font-family:'Inter',sans-serif;color:var(--text);background:var(--surface);outline:none;transition:border-color 0.2s;width:100%}
+    .form-input:focus{border-color:var(--blue)}
+    textarea.form-input{resize:vertical;height:100px}
+    .form-btn{width:100%;background:var(--blue);color:#fff;border:none;padding:10px;border-radius:8px;font-size:0.82rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;margin-top:0.25rem}
+    .form-btn:hover{background:#1D4ED8}
+
+    /* FOOTER */
+    .footer{background:var(--text);color:#94A3B8;padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
+    .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.9rem;color:#fff}
+    .footer p{font-size:0.75rem}
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .hero-inner,.exp-grid,.cases-grid,.skills-layout,.contact-layout{grid-template-columns:1fr}
+      .hero{padding:5rem 1.5rem 3rem}
+      .hero h1{font-size:2.2rem}
+      .section{padding:3rem 1.5rem}
+      .topbar-nav{display:none}
+      .certs-row{grid-template-columns:1fr 1fr}
+      .footer{flex-direction:column;gap:0.5rem;text-align:center}
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header class="topbar">
+  <div class="topbar-logo">Henry <span>Le</span></div>
+  <nav class="topbar-nav">
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="topbar-cta" href="mailto:henryleproduct@gmail.com">Hire me ↗</a>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge"><span class="dot"></span>Open to internship opportunities</div>
+      <h1>Minh Phat<br><span class="accent">(Henry) Le</span></h1>
+      <p class="hero-subtitle">IT Business Analyst · Product Owner · Kitchener, ON</p>
+      <p class="hero-desc">Translating user pain points into actionable product solutions. Experienced in market research, Agile/Scrum, PRD writing, and Figma prototyping across Vietnam and Canada.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#contact">Get in touch ↓</a>
+        <a class="btn-ghost" href="#projects">View my work ↓</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="links-row">
+        <a class="link-chip" href="mailto:henryleproduct@gmail.com"><i class="ti ti-mail"></i>Email</a>
+        <a class="link-chip" href="https://www.linkedin.com/in/henryle-product" target="_blank"><i class="ti ti-brand-linkedin"></i>LinkedIn</a>
+        <a class="link-chip" href="#"><i class="ti ti-map-pin"></i>Ontario, CA</a>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="ti ti-users"></i></div>
+        <div><div class="stat-num">500+</div><div class="stat-lbl">Users interviewed & surveyed</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="ti ti-clock-check"></i></div>
+        <div><div class="stat-num">90%</div><div class="stat-lbl">On-time project delivery rate</div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon"><i class="ti ti-certificate"></i></div>
+        <div><div class="stat-num">6</div><div class="stat-lbl">Product management certifications</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section alt" id="experience">
+  <div class="section-inner">
+    <div class="exp-grid">
+      <div class="exp-sticky">
+        <p class="eyebrow">Career history</p>
+        <h2 class="sec-title">Work experience</h2>
+        <p class="sec-sub">3+ years across research, product, and marketing roles in Vietnam and Canada.</p>
+        <div class="exp-notice">
+          <p>Currently studying</p>
+          <p>Postgraduate Certificate in IT Business Analysis — Conestoga College (Jan 2025 – Apr 2026)</p>
+        </div>
+      </div>
+      <div class="exp-list">
+        <div class="exp-item">
+          <div class="exp-icon"><i class="ti ti-speakerphone"></i></div>
+          <div>
+            <div class="exp-meta">May 2025 – Dec 2025 · Ontario, Canada</div>
+            <div class="exp-title">Social Media Ambassador</div>
+            <div class="exp-org">Conestoga College</div>
+            <ul class="exp-pts">
+              <li>Surveyed 200+ students to surface campus service pain points</li>
+              <li>Collaborated with Marketing & Media — drove 9% engagement uplift</li>
+              <li>Built AI-powered Q&A onboarding flow, cutting repetitive inquiries</li>
+              <li>Managed Orientation Week campaign end-to-end</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-icon"><i class="ti ti-chart-bar"></i></div>
+          <div>
+            <div class="exp-meta">May 2024 – Oct 2024 · Ho Chi Minh, Vietnam</div>
+            <div class="exp-title">Market Research Assistant</div>
+            <div class="exp-org">CI Research</div>
+            <ul class="exp-pts">
+              <li>Led client meetings to elicit and define research requirements</li>
+              <li>Delivered 90% of projects on time through structured task breakdown</li>
+              <li>Proposed vaccine registration UX redesign — 12% experience improvement</li>
+              <li>Configured tablet-based questionnaires for error-free data collection</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-icon"><i class="ti ti-microphone"></i></div>
+          <div>
+            <div class="exp-meta">Apr 2023 – Feb 2024 · Ho Chi Minh, Vietnam</div>
+            <div class="exp-title">Market Research Interviewer</div>
+            <div class="exp-org">Gcom</div>
+            <ul class="exp-pts">
+              <li>Screened and recruited 500+ respondents aligned to research criteria</li>
+              <li>Applied multi-method sampling: surveys, interviews, field observations</li>
+              <li>Collected post-trial UX feedback using structured questionnaires</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section" id="projects">
+  <div class="section-inner">
+    <p class="eyebrow">Product thinking</p>
+    <h2 class="sec-title">Case studies</h2>
+    <p class="sec-sub">End-to-end product feature design — from user research to MVP scoping.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-header-band">
+          <div class="case-tag">Feature design · Instant messaging</div>
+          <div class="case-title"><a class="case-title-link" href="https://drive.google.com/file/d/1Z2cfLSpMioXpTg9h7jljyPU2Wj0WxkeE/view?usp=sharing" target="_blank" rel="noopener">Zalo — Thread feature for desktop app <i class="ti ti-external-link"></i></a></div>
+        </div>
+        <div class="case-body">
+          <p class="case-desc">Interviewed 9 office workers to surface the top pain point: no topic-based discussion flow in group chats (47% affected). Designed a Thread feature with AI summarization, Figma mockups, user flows, and MVP scoped for Q3 2025.</p>
+          <div class="metrics">
+            <div class="metric"><strong>47%</strong> users affected</div>
+            <div class="metric"><strong>Q3 2025</strong> MVP timeline</div>
+            <div class="metric">AI summarization</div>
+            <div class="metric">Figma mockups</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-header-band">
+          <div class="case-tag">Last-mile UX · E-commerce</div>
+          <div class="case-title"><a class="case-title-link" href="https://drive.google.com/file/d/1LwTCtCDqyEq4SQzU8fsh-rYLqS-DoC39/view?usp=sharing" target="_blank" rel="noopener">Shopee — Pickup Nearby You delivery <i class="ti ti-external-link"></i></a></div>
+        </div>
+        <div class="case-body">
+          <p class="case-desc">Analysed Shopee's last-mile delivery failures — 75% of users impacted by missed deliveries. Designed a secure drop-off location feature with Figma mockups, user story, and a full 2026 roadmap targeting reduced redelivery costs.</p>
+          <div class="metrics">
+            <div class="metric"><strong>75%</strong> users affected</div>
+            <div class="metric"><strong>≤5%</strong> failed delivery target</div>
+            <div class="metric"><strong>≥30%</strong> adoption goal</div>
+            <div class="metric">CSAT ≥ 4/5</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section alt" id="skills">
+  <div class="section-inner">
+    <p class="eyebrow">Capabilities</p>
+    <h2 class="sec-title">Skills & tools</h2>
+    <p class="sec-sub">A blend of product, research, and data skills built across academic and professional work.</p>
+    <div class="skills-layout">
+      <div class="skill-card">
+        <div class="skill-card-title"><i class="ti ti-stack"></i>Product & methodology</div>
+        <div class="tags">
+          <span class="tag">Agile / Scrum</span><span class="tag">User Stories</span><span class="tag">PRD writing</span>
+          <span class="tag">MVP scoping</span><span class="tag">Roadmapping</span><span class="tag">Acceptance criteria</span><span class="tag">Product backlog</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title"><i class="ti ti-palette"></i>Design & prototyping</div>
+        <div class="tags">
+          <span class="tag">Figma</span><span class="tag">User flows</span><span class="tag">Wireframes</span>
+          <span class="tag">Mockups</span><a class="tag" href="https://www.figma.com/design/Ugf9fZuiP0RdMQCVvOxzDB/B2B-Impersonation-Fraud-Insurance?node-id=0-1&t=f2SsfcSzrB539acx-1" target="_blank" rel="noopener">UX / UI basics<i class="ti ti-external-link"></i></a><span class="tag">Miro</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title"><i class="ti ti-chart-dots"></i>Research & analytics</div>
+        <div class="tags">
+          <span class="tag">User research</span><span class="tag">Pain point analysis</span><span class="tag">Quantitative surveys</span>
+          <span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">MySQL</span><span class="tag">Minitab</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title"><i class="ti ti-tools"></i>Collaboration tools</div>
+        <div class="tags">
+          <span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Microsoft Visio</span>
+          <span class="tag">MS Teams</span><span class="tag">Excel</span><span class="tag">PowerPoint</span>
+        </div>
+      </div>
+    </div>
+    <p class="eyebrow" style="margin-top:2rem">Certifications</p>
+    <div class="certs-row">
+      <a class="cert-chip" href="https://www.credly.com/badges/b9d48982-8614-4e64-8606-4878e87e450f/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>Product-led<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.credly.com/badges/7b7bc2de-9534-48ee-86e1-dc1abc9b670e/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>Product Analytics<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.credly.com/badges/d78574be-c93f-4a41-b1be-4d0ea21c6ee1/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>Product Discovery<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.credly.com/badges/9b68eaef-5afe-4960-84dc-33c18b7f4105/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>PM Basics<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.credly.com/badges/0be0505d-e0b6-499f-8052-e397d2332ee9/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>AI for PM<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.linkedin.com/learning/certificates/17cb7bfcff45ff421ff38f56811ad5ae0ca8edd14a9dac1000c1351277b402dd?u=2212217" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>MySQL Advanced<i class="ti ti-external-link"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div class="contact-info">
+        <p class="eyebrow">Get in touch</p>
+        <h2 class="sec-title">Let's connect</h2>
+        <p>Looking for an IT Business Analyst or Product Owner intern who brings hands-on research experience and a sharp eye for user pain points? Reach out!</p>
+        <div class="contact-links">
+          <a class="contact-link" href="mailto:henryleproduct@gmail.com"><i class="ti ti-mail"></i>henryleproduct@gmail.com</a>
+          <a class="contact-link" href="tel:+15489220602"><i class="ti ti-phone"></i>+1 (548) 922 0602</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/henryle-product" target="_blank"><i class="ti ti-brand-linkedin"></i>linkedin.com/in/henryle-product</a>
+          <a class="contact-link" href="#"><i class="ti ti-map-pin"></i>Kitchener, Ontario, Canada</a>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-title">Send a message</div>
+        <div class="form-row">
+          <label class="form-label">Your name</label>
+          <input class="form-input" type="text" placeholder="Jane Smith">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="jane@company.com">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Message</label>
+          <textarea class="form-input" placeholder="Hi Henry, I'd love to chat about..."></textarea>
+        </div>
+        <button class="form-btn">Send message ↗</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Henry Le</div>
+  <p>© 2026 Minh Phat (Henry) Le · IT Business Analyst</p>
+</footer>
+
+</body>
+</html>
