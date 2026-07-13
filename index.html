@@ -5,92 +5,138 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Henry Le — IT Business Analyst Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --blue:#2563EB;--blue-soft:#3B82F6;--blue-light:#EFF6FF;--blue-border:#BFDBFE;
-      --text:#0F172A;--text-sec:#475569;--muted:#94A3B8;
-      --bg:#FFFFFF;--surface:#F8FAFC;--card:#F1F5F9;--border:#E2E8F0;
+      --purple:#5221e6;--purple-light:#8b6df0;--purple-soft:rgba(82,33,230,0.14);
+      --cyan:#22D3EE;--lime:#3cc74e;
+      --bg:#181823;--bg-alt:#1f1f2e;--surface:#22222f;--card:#26263a;
+      --border:rgba(255,255,255,0.08);--border-hover:rgba(139,109,240,0.5);
+      --text:#F4F4F6;--text-sec:#b8bcc8;--muted:#8491a0;
     }
     html{scroll-behavior:smooth}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
 
     /* TOPBAR */
-    .topbar{position:fixed;top:0;left:0;right:0;height:56px;background:rgba(255,255,255,0.92);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;z-index:100}
-    .topbar-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text);letter-spacing:-0.02em}
-    .topbar-logo span{color:var(--blue)}
+    .topbar{position:fixed;top:0;left:0;right:0;height:56px;background:rgba(24,24,35,0.85);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;z-index:100}
+    .topbar-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:var(--text);letter-spacing:-0.02em}
+    .topbar-logo span{color:var(--purple-light)}
     .topbar-nav{display:flex;gap:2rem}
     .topbar-nav a{font-size:0.8rem;color:var(--text-sec);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
-    .topbar-nav a:hover{color:var(--blue)}
-    .topbar-cta{background:var(--blue);color:#fff;border:none;padding:7px 18px;border-radius:8px;font-size:0.78rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;text-decoration:none}
-    .topbar-cta:hover{background:#1D4ED8}
+    .topbar-nav a:hover{color:var(--cyan)}
+    .topbar-cta{position:relative;z-index:1;background:linear-gradient(135deg,var(--purple) 0%,var(--purple-light) 55%,var(--cyan) 100%);color:#fff;border:none;padding:8px 20px;border-radius:8px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;letter-spacing:0.01em;
+      box-shadow:0 0 0 0 rgba(139,109,240,0.55),0 0 14px 2px rgba(34,211,238,0.3);
+      animation:cta-pulse 2.2s ease-in-out infinite;
+      transition:transform 0.2s ease,box-shadow 0.2s ease}
+    .topbar-cta:hover{transform:translateY(-1px) scale(1.05);box-shadow:0 4px 20px rgba(34,211,238,0.55)}
+    @keyframes cta-pulse{
+      0%,100%{box-shadow:0 0 0 0 rgba(139,109,240,0.55),0 0 12px 2px rgba(34,211,238,0.3)}
+      50%{box-shadow:0 0 0 7px rgba(139,109,240,0),0 0 22px 6px rgba(34,211,238,0.55)}
+    }
 
     /* HERO */
-    .hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2.5rem 4rem;background:linear-gradient(135deg,#F8FAFC 0%,#EFF6FF 60%,#DBEAFE 100%);position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;border-radius:50%;background:rgba(37,99,235,0.06);pointer-events:none}
-    .hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:320px;height:320px;border-radius:50%;background:rgba(37,99,235,0.04);pointer-events:none}
-    .hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:#fff;border:0.5px solid var(--blue-border);border-radius:20px;padding:5px 14px;font-size:0.72rem;color:var(--blue);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1.5rem;box-shadow:0 1px 4px rgba(37,99,235,0.08)}
-    .dot{width:6px;height:6px;border-radius:50%;background:#22C55E;display:inline-block;animation:pulse 2s infinite}
+    .hero{min-height:100vh;display:flex;align-items:center;padding:6rem 2.5rem 4rem;background:radial-gradient(circle at 85% 15%,rgba(82,33,230,0.25) 0%,rgba(24,24,35,0) 45%),radial-gradient(circle at 5% 90%,rgba(34,211,238,0.12) 0%,rgba(24,24,35,0) 40%),var(--bg);position:relative;overflow:hidden}
+    .hero-aurora{position:absolute;inset:-10px;pointer-events:none;overflow:hidden;opacity:0.35;filter:blur(10px);mix-blend-mode:screen;
+      background-image:repeating-linear-gradient(100deg,var(--purple) 0%,var(--purple-light) 8%,var(--cyan) 16%,var(--lime) 24%,var(--purple) 32%);
+      background-size:200% 200%;background-position:50% 50%;animation:aurora 60s linear infinite;
+      mask-image:radial-gradient(ellipse at 100% 0%,black 10%,transparent 70%);
+      -webkit-mask-image:radial-gradient(ellipse at 100% 0%,black 10%,transparent 70%)}
+    @keyframes aurora{from{background-position:50% 50%}to{background-position:350% 50%}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+    .hero-waves{position:absolute;left:0;right:0;bottom:-2px;height:38%;min-height:140px;z-index:0;pointer-events:none;overflow:hidden}
+    .hero-wave-layer{position:absolute;bottom:0;left:0;width:200%;height:100%;display:flex;will-change:transform}
+    .hero-wave-layer svg{width:50%;height:100%;flex-shrink:0;display:block}
+    .hero-wave-back{opacity:0.16;animation:wave-scroll 22s linear infinite}
+    .hero-wave-back path{fill:var(--cyan)}
+    .hero-wave-front{opacity:0.14;animation:wave-scroll 14s linear infinite reverse}
+    .hero-wave-front path{fill:var(--purple-light)}
+    @keyframes wave-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.15fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+    .hero-left{animation:fadeInUp 0.8s ease-in-out 0.3s both}
+    .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:0.5px solid var(--border);border-radius:20px;padding:5px 14px;font-size:0.72rem;color:var(--cyan);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1.5rem}
+    .dot{width:6px;height:6px;border-radius:50%;background:var(--lime);display:inline-block;animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
-    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:3rem;font-weight:700;line-height:1.1;letter-spacing:-0.04em;margin-bottom:0.5rem}
-    .hero h1 .accent{color:var(--blue)}
+    .hero h1{font-family:'Space Grotesk',sans-serif;font-size:3.1rem;font-weight:700;line-height:1.15;letter-spacing:-0.03em;margin-bottom:0.75rem}
+    .hero h1 .accent{color:var(--purple-light)}
+    .hero h1 .accent-cyan{color:var(--cyan)}
     .hero-subtitle{font-size:1rem;color:var(--muted);margin-bottom:1.2rem;font-weight:400}
-    .hero-desc{font-size:0.88rem;color:var(--text-sec);line-height:1.8;margin-bottom:2rem;max-width:440px}
+    .hero-desc{font-size:0.9rem;color:var(--text-sec);line-height:1.8;margin-bottom:2rem;max-width:460px}
     .hero-btns{display:flex;gap:0.75rem}
-    .btn-primary{background:var(--blue);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:0.82rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;text-decoration:none;display:inline-block}
-    .btn-primary:hover{background:#1D4ED8}
-    .btn-ghost{background:#fff;color:var(--text-sec);border:0.5px solid var(--border);padding:10px 22px;border-radius:8px;font-size:0.82rem;font-weight:400;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;text-decoration:none;display:inline-block}
-    .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+    .btn-primary{background:var(--purple);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:0.82rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;text-decoration:none;display:inline-block}
+    .btn-primary:hover{background:var(--purple-light)}
+    .btn-ghost{background:transparent;color:var(--text-sec);border:0.5px solid var(--border);padding:10px 22px;border-radius:8px;font-size:0.82rem;font-weight:400;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s;text-decoration:none;display:inline-block}
+    .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
     .hero-right{display:flex;flex-direction:column;gap:1rem}
-    .stat-card{background:#fff;border:0.5px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem}
-    .stat-icon{width:42px;height:42px;border-radius:10px;background:var(--blue-light);border:0.5px solid var(--blue-border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .stat-icon i{font-size:20px;color:var(--blue)}
+    .hero-photo-row{display:flex;align-items:center;gap:1.25rem;margin-bottom:0.25rem;position:relative}
+    .hero-photo-blob{position:absolute;top:-30px;left:-30px;width:190px;height:190px;border-radius:42% 58% 63% 37% / 41% 42% 58% 59%;background:linear-gradient(135deg,var(--purple) 0%,var(--cyan) 100%);opacity:0.25;filter:blur(6px);z-index:0}
+    .hero-photo-frame{width:132px;height:132px;border-radius:22px;overflow:hidden;flex-shrink:0;border:3px solid var(--surface);box-shadow:0 10px 30px rgba(82,33,230,0.25),0 2px 8px rgba(0,0,0,0.3);position:relative;z-index:1}
+    .hero-photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-photo-info{display:flex;flex-direction:column;gap:6px;position:relative;z-index:1}
+    .hero-photo-name{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:var(--text)}
+    .hero-photo-role{font-size:0.78rem;color:var(--text-sec)}
+    .hero-photo-badge{display:inline-flex;align-items:center;gap:5px;font-size:0.7rem;color:var(--lime);font-weight:500;background:rgba(60,199,78,0.1);border:0.5px solid rgba(60,199,78,0.3);border-radius:20px;padding:3px 10px;width:fit-content}
+    .stat-card{background:var(--surface);border:0.5px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem}
+    .stat-icon{width:42px;height:42px;border-radius:10px;background:var(--purple-soft);border:0.5px solid rgba(139,109,240,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .stat-icon i{font-size:20px;color:var(--purple-light)}
     .stat-num{font-family:'Space Grotesk',sans-serif;font-size:1.5rem;font-weight:700;color:var(--text);line-height:1}
     .stat-lbl{font-size:0.72rem;color:var(--muted);margin-top:2px}
     .links-row{display:flex;gap:0.6rem;flex-wrap:wrap}
-    .link-chip{display:flex;align-items:center;gap:5px;padding:6px 12px;background:#fff;border:0.5px solid var(--border);border-radius:8px;font-size:0.75rem;color:var(--text-sec);text-decoration:none;transition:all 0.2s}
-    .link-chip:hover{border-color:var(--blue);color:var(--blue)}
+    .link-chip{display:flex;align-items:center;gap:5px;padding:6px 12px;background:var(--surface);border:0.5px solid var(--border);border-radius:8px;font-size:0.75rem;color:var(--text-sec);text-decoration:none;transition:all 0.2s}
+    .link-chip:hover{border-color:var(--cyan);color:var(--cyan)}
     .link-chip i{font-size:14px}
 
     /* SECTIONS */
     .section{padding:5rem 2.5rem}
     .section-inner{max-width:1100px;margin:0 auto}
-    .section.alt{background:var(--surface)}
-    .eyebrow{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);font-weight:500;margin-bottom:0.5rem}
+    .section.alt{background:var(--bg-alt)}
+    .eyebrow{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--cyan);font-weight:500;margin-bottom:0.5rem}
     .sec-title{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-0.03em;color:var(--text);margin-bottom:0.5rem}
     .sec-sub{font-size:0.88rem;color:var(--muted);margin-bottom:2.5rem}
+
+    /* COMPANIES BAND */
+    .companies-band{padding:3rem 2.5rem;background:var(--bg);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)}
+    .companies-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+    .companies-text{max-width:420px}
+    .companies-text h2{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:0.5rem}
+    .companies-text p{font-size:0.85rem;color:var(--muted)}
+    .companies-logos{display:flex;gap:0.75rem;flex-wrap:wrap}
+    .company-logo-card{display:flex;align-items:center;justify-content:center;height:48px}
+    .company-logo-card img{height:100%;width:auto;max-width:160px;object-fit:contain;display:block}
 
     /* EXPERIENCE */
     .exp-grid{display:grid;grid-template-columns:1fr 2fr;gap:4rem}
     .exp-sticky{position:sticky;top:80px;align-self:start}
-    .exp-notice{margin-top:1.5rem;padding:1rem 1.25rem;background:var(--blue-light);border:0.5px solid var(--blue-border);border-radius:12px}
-    .exp-notice p:first-child{font-size:0.8rem;color:var(--blue);font-weight:500;margin-bottom:0.25rem}
+    .exp-notice{margin-top:1.5rem;padding:1rem 1.25rem;background:var(--purple-soft);border:0.5px solid rgba(139,109,240,0.3);border-radius:12px}
+    .exp-notice p:first-child{font-size:0.8rem;color:var(--purple-light);font-weight:500;margin-bottom:0.25rem}
     .exp-notice p:last-child{font-size:0.82rem;color:var(--text-sec)}
     .exp-list{display:flex;flex-direction:column}
     .exp-item{padding:1.5rem 0;border-bottom:0.5px solid var(--border);display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:start}
     .exp-item:last-child{border-bottom:none}
-    .exp-icon{width:40px;height:40px;border-radius:10px;background:var(--blue-light);border:0.5px solid var(--blue-border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .exp-icon i{font-size:18px;color:var(--blue)}
+    .exp-icon{width:40px;height:40px;border-radius:10px;background:var(--purple-soft);border:0.5px solid rgba(139,109,240,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .exp-icon i{font-size:18px;color:var(--purple-light)}
     .exp-meta{font-size:0.72rem;color:var(--muted);margin-bottom:0.25rem}
     .exp-title{font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:600;color:var(--text);margin-bottom:0.15rem}
-    .exp-org{font-size:0.78rem;color:var(--blue);margin-bottom:0.6rem}
+    .exp-org{font-size:0.78rem;color:var(--cyan);margin-bottom:0.6rem}
     .exp-pts{list-style:none;display:flex;flex-direction:column;gap:4px}
     .exp-pts li{font-size:0.78rem;color:var(--text-sec);padding-left:12px;position:relative;line-height:1.5}
-    .exp-pts li::before{content:'·';position:absolute;left:0;color:var(--blue-soft);font-weight:700}
+    .exp-pts li::before{content:'·';position:absolute;left:0;color:var(--purple-light);font-weight:700}
+
+    /* EDUCATION */
+    .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+    .edu-card{background:var(--surface);border:0.5px solid var(--border);border-radius:16px;padding:1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1.25rem;align-items:start}
 
     /* CASE STUDIES */
     .cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
-    .case-card{background:#fff;border:0.5px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow 0.2s,border-color 0.2s}
-    .case-card:hover{box-shadow:0 4px 24px rgba(37,99,235,0.1);border-color:var(--blue-border)}
-    .case-header-band{background:var(--blue-light);padding:1.25rem 1.5rem;border-bottom:0.5px solid var(--blue-border)}
-    .case-tag{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue);font-weight:500;margin-bottom:0.4rem}
+    .case-card{background:var(--surface);border:0.5px solid var(--border);border-radius:16px;overflow:hidden;transition:box-shadow 0.2s,border-color 0.2s}
+    .case-card:hover{box-shadow:0 4px 24px rgba(82,33,230,0.15);border-color:var(--border-hover)}
+    .case-header-band{background:var(--purple-soft);padding:1.25rem 1.5rem;border-bottom:0.5px solid rgba(139,109,240,0.3)}
+    .case-tag{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--purple-light);font-weight:500;margin-bottom:0.4rem}
     .case-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;color:var(--text);line-height:1.3}
     .case-title-link{display:inline-flex;align-items:center;gap:6px;color:var(--text);text-decoration:none;transition:color 0.2s}
-    .case-title-link:hover{color:var(--blue)}
-    .case-title-link i{font-size:14px;color:var(--blue-soft);flex-shrink:0}
+    .case-title-link:hover{color:var(--cyan)}
+    .case-title-link i{font-size:14px;color:var(--cyan);flex-shrink:0}
     .case-body{padding:1.25rem 1.5rem}
     .case-desc{font-size:0.8rem;color:var(--text-sec);line-height:1.7;margin-bottom:1rem}
     .metrics{display:flex;flex-wrap:wrap;gap:6px}
@@ -99,51 +145,71 @@
 
     /* SKILLS */
     .skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .skill-card{background:#fff;border:0.5px solid var(--border);border-radius:14px;padding:1.25rem}
-    .skill-card-title{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--blue);margin-bottom:0.75rem;font-weight:500;display:flex;align-items:center;gap:6px}
+    .skill-card{background:var(--surface);border:0.5px solid var(--border);border-radius:14px;padding:1.25rem}
+    .skill-card-title{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--cyan);margin-bottom:0.75rem;font-weight:500;display:flex;align-items:center;gap:6px}
     .skill-card-title i{font-size:15px}
     .tags{display:flex;flex-wrap:wrap;gap:6px}
-    .tag{font-size:0.73rem;color:var(--text-sec);background:var(--surface);border:0.5px solid var(--border);padding:4px 10px;border-radius:6px}
+    .tag{font-size:0.73rem;color:var(--text-sec);background:var(--bg-alt);border:0.5px solid var(--border);padding:4px 10px;border-radius:6px}
     a.tag{text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:4px}
-    a.tag:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-light)}
+    a.tag:hover{border-color:var(--purple-light);color:var(--purple-light);background:var(--purple-soft)}
     a.tag i{font-size:11px}
     .certs-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:1rem}
-    .cert-chip{display:flex;align-items:center;gap:7px;font-size:0.75rem;color:var(--text-sec);padding:8px 12px;background:#fff;border:0.5px solid var(--border);border-radius:8px;text-decoration:none;transition:all 0.2s;cursor:pointer}
-    .cert-chip:hover{border-color:var(--blue);color:var(--blue);box-shadow:0 2px 10px rgba(37,99,235,0.1)}
-    .cert-chip i{color:var(--blue);font-size:14px;flex-shrink:0}
+    .cert-chip{display:flex;align-items:center;gap:7px;font-size:0.75rem;color:var(--text-sec);padding:8px 12px;background:var(--surface);border:0.5px solid var(--border);border-radius:8px;text-decoration:none;transition:all 0.2s;cursor:pointer}
+    .cert-chip:hover{border-color:var(--purple-light);color:var(--purple-light)}
+    .cert-chip i{color:var(--purple-light);font-size:14px;flex-shrink:0}
     .cert-chip .ti-external-link{margin-left:auto;font-size:12px;color:var(--muted)}
+
+    /* DIFFERENTIATORS */
+    .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+    .diff-card{background:var(--surface);border:0.5px solid var(--border);border-radius:16px;padding:1.5rem}
+    .diff-num{font-family:'Space Grotesk',sans-serif;font-size:0.75rem;color:var(--purple-light);font-weight:700;margin-bottom:0.75rem}
+    .diff-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--text)}
+    .diff-desc{font-size:0.8rem;color:var(--text-sec);line-height:1.6}
 
     /* CONTACT */
     .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
     .contact-info p{font-size:0.88rem;color:var(--text-sec);line-height:1.8;margin-bottom:1.5rem}
     .contact-links{display:flex;flex-direction:column;gap:0.6rem}
-    .contact-link{display:flex;align-items:center;gap:10px;font-size:0.82rem;color:var(--text-sec);text-decoration:none;padding:10px 14px;border:0.5px solid var(--border);border-radius:10px;background:#fff;transition:all 0.2s}
-    .contact-link:hover{border-color:var(--blue);color:var(--blue)}
-    .contact-link i{font-size:16px;color:var(--blue);flex-shrink:0}
-    .contact-form{background:#fff;border:0.5px solid var(--border);border-radius:16px;padding:2rem}
+    .contact-link{display:flex;align-items:center;gap:10px;font-size:0.82rem;color:var(--text-sec);text-decoration:none;padding:10px 14px;border:0.5px solid var(--border);border-radius:10px;background:var(--surface);transition:all 0.2s}
+    .contact-link:hover{border-color:var(--cyan);color:var(--cyan)}
+    .contact-link i{font-size:16px;color:var(--purple-light);flex-shrink:0}
+    .contact-form{background:var(--surface);border:0.5px solid var(--border);border-radius:16px;padding:2rem}
     .form-title{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;margin-bottom:1.25rem;color:var(--text)}
     .form-row{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1rem}
     .form-label{font-size:0.75rem;color:var(--text-sec);font-weight:500}
-    .form-input{padding:9px 12px;border:0.5px solid var(--border);border-radius:8px;font-size:0.82rem;font-family:'Inter',sans-serif;color:var(--text);background:var(--surface);outline:none;transition:border-color 0.2s;width:100%}
-    .form-input:focus{border-color:var(--blue)}
+    .form-input{padding:9px 12px;border:0.5px solid var(--border);border-radius:8px;font-size:0.82rem;font-family:'Inter',sans-serif;color:var(--text);background:var(--bg-alt);outline:none;transition:border-color 0.2s;width:100%}
+    .form-input::placeholder{color:var(--muted)}
+    .form-input:focus{border-color:var(--purple-light)}
     textarea.form-input{resize:vertical;height:100px}
-    .form-btn{width:100%;background:var(--blue);color:#fff;border:none;padding:10px;border-radius:8px;font-size:0.82rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;margin-top:0.25rem}
-    .form-btn:hover{background:#1D4ED8}
+    .form-btn{width:100%;background:var(--purple);color:#fff;border:none;padding:10px;border-radius:8px;font-size:0.82rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;margin-top:0.25rem}
+    .form-btn:hover{background:var(--purple-light)}
+    .form-hint{font-size:0.72rem;color:var(--muted);text-align:center;margin-top:0.6rem}
 
     /* FOOTER */
-    .footer{background:var(--text);color:#94A3B8;padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center}
-    .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.9rem;color:#fff}
+    .footer{background:#101019;color:var(--muted);padding:2rem 2.5rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--border)}
+    .footer-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:0.9rem;color:var(--text)}
+    .footer-nav{display:flex;gap:1.25rem;flex-wrap:wrap}
+    .footer-nav a{font-size:0.75rem;color:var(--muted);text-decoration:none;transition:color 0.2s}
+    .footer-nav a:hover{color:var(--cyan)}
     .footer p{font-size:0.75rem}
 
     /* RESPONSIVE */
     @media(max-width:768px){
-      .hero-inner,.exp-grid,.cases-grid,.skills-layout,.contact-layout{grid-template-columns:1fr}
+      .hero-inner,.exp-grid,.edu-grid,.cases-grid,.skills-layout,.contact-layout{grid-template-columns:1fr}
+      .diff-grid{grid-template-columns:1fr 1fr}
       .hero{padding:5rem 1.5rem 3rem}
       .hero h1{font-size:2.2rem}
       .section{padding:3rem 1.5rem}
+      .companies-band{padding:2rem 1.5rem}
       .topbar-nav{display:none}
       .certs-row{grid-template-columns:1fr 1fr}
       .footer{flex-direction:column;gap:0.5rem;text-align:center}
+      .hero-photo-row{margin-bottom:0.5rem}
+      .hero-photo-frame{width:104px;height:104px;border-radius:18px}
+      .hero-photo-blob{width:150px;height:150px}
+    }
+    @media(max-width:480px){
+      .diff-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -154,6 +220,7 @@
   <div class="topbar-logo">Henry<span>Le</span></div>
   <nav class="topbar-nav">
     <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
     <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
@@ -163,18 +230,40 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
+  <div class="hero-aurora"></div>
+  <div class="hero-waves" aria-hidden="true">
+    <div class="hero-wave-layer hero-wave-back">
+      <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,110 C240,180 480,40 720,100 C960,160 1200,40 1440,100 L1440,220 L0,220 Z"/></svg>
+      <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,110 C240,180 480,40 720,100 C960,160 1200,40 1440,100 L1440,220 L0,220 Z"/></svg>
+    </div>
+    <div class="hero-wave-layer hero-wave-front">
+      <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,130 C220,70 460,190 720,120 C980,50 1220,170 1440,120 L1440,220 L0,220 Z"/></svg>
+      <svg viewBox="0 0 1440 220" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,130 C220,70 460,190 720,120 C980,50 1220,170 1440,120 L1440,220 L0,220 Z"/></svg>
+    </div>
+  </div>
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-badge"><span class="dot"></span>Open to internship opportunities</div>
-      <h1><br><span class="accent">Henry Le</span></h1>
+      <h1>I'm <span class="accent">Henry</span><br>I build <span class="accent-cyan">product solutions</span> that delight users.</h1>
       <p class="hero-subtitle">IT Business Analyst · Product Owner · Kitchener, ON</p>
-      <p class="hero-desc">Translating user pain points into actionable product solutions. Experienced in market research, Agile/Scrum, PRD writing, and Figma prototyping across Vietnam and Canada.</p>
+      <p class="hero-desc">Translating user pain points into actionable product solutions. Experienced in Agile/Scrum, PRD writing, Figma prototyping, marketing and market research across Canada and Vietnam.</p>
       <div class="hero-btns">
         <a class="btn-primary" href="#contact">Get in touch</a>
         <a class="btn-ghost" href="#projects">View my work</a>
       </div>
     </div>
     <div class="hero-right">
+      <div class="hero-photo-row">
+        <div class="hero-photo-blob"></div>
+        <div class="hero-photo-frame">
+          <img src="henry-le-centered.jpg" alt="Henry Le, IT Business Analyst">
+        </div>
+        <div class="hero-photo-info">
+          <div class="hero-photo-name">Henry Le</div>
+          <div class="hero-photo-role">Postgraduate Ontario Certificate of Information Technology Business Analysis</div>
+          <div class="hero-photo-badge"><i class="ti ti-circle-check-filled"></i>Graduating April 2026</div>
+        </div>
+      </div>
       <div class="links-row">
         <a class="link-chip" href="mailto:henryleproduct@gmail.com"><i class="ti ti-mail"></i>Email</a>
         <a class="link-chip" href="https://www.linkedin.com/in/henryle-product" target="_blank"><i class="ti ti-brand-linkedin"></i>LinkedIn</a>
@@ -195,6 +284,21 @@
     </div>
   </div>
 </section>
+
+<!-- COMPANIES / ORGS -->
+<div class="companies-band">
+  <div class="companies-inner">
+    <div class="companies-text">
+      <h2>Organizations I've worked with.</h2>
+      <p>Research, product, and marketing roles across academic and industry teams in Vietnam and Canada.</p>
+    </div>
+    <div class="companies-logos">
+      <div class="company-logo-card"><img src="Conestoga_College_logo.svg" alt="Conestoga College"></div>
+      <div class="company-logo-card"><img src="ci-research-logo.png" alt="CI Research"></div>
+      <div class="company-logo-card"><img src="gcomm-logo.png" alt="Gcomm Insights and Growth"></div>
+    </div>
+  </div>
+</div>
 
 <!-- EXPERIENCE -->
 <section class="section alt" id="experience">
@@ -250,6 +354,33 @@
               <li>Collected post-trial UX feedback using structured questionnaires</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section" id="education">
+  <div class="section-inner">
+    <p class="eyebrow">Academic background</p>
+    <h2 class="sec-title">Education</h2>
+    <p class="sec-sub">Formal training in marketing and IT business analysis across Vietnam and Canada.</p>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="exp-icon"><i class="ti ti-school"></i></div>
+        <div>
+          <div class="exp-meta">Bachelor's Degree</div>
+          <div class="exp-title">Bachelor of Marketing</div>
+          <div class="exp-org">University of Finance and Marketing</div>
+        </div>
+      </div>
+      <div class="edu-card">
+        <div class="exp-icon"><i class="ti ti-certificate"></i></div>
+        <div>
+          <div class="exp-meta">Graduate Certificate · Jan 2025 – Apr 2026</div>
+          <div class="exp-title">Ontario College Graduate Certificate, Information Technology Business Analysis</div>
+          <div class="exp-org">Conestoga College</div>
         </div>
       </div>
     </div>
@@ -345,8 +476,39 @@
   </div>
 </section>
 
+<!-- DIFFERENTIATORS -->
+<section class="section" id="differentiators">
+  <div class="section-inner">
+    <p class="eyebrow">Why work with me</p>
+    <h2 class="sec-title">What sets me apart</h2>
+    <p class="sec-sub">Four things I bring to every product team.</p>
+    <div class="diff-grid">
+      <div class="diff-card">
+        <div class="diff-num">01</div>
+        <div class="diff-title">User-centric mindset</div>
+        <div class="diff-desc">500+ users interviewed and surveyed — pain-point discovery drives every recommendation I make.</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-num">02</div>
+        <div class="diff-title">Structured delivery</div>
+        <div class="diff-desc">90% on-time delivery rate through clear requirements, task breakdown, and Agile/Scrum discipline.</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-num">03</div>
+        <div class="diff-title">Cross-functional communication</div>
+        <div class="diff-desc">Comfortable leading client meetings, aligning marketing teams, and briefing stakeholders across two countries.</div>
+      </div>
+      <div class="diff-card">
+        <div class="diff-num">04</div>
+        <div class="diff-title">Versatile toolkit</div>
+        <div class="diff-desc">From Figma prototyping to SQL and BI dashboards — I move fluidly between design, data, and delivery.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
-<section class="section" id="contact">
+<section class="section alt" id="contact">
   <div class="section-inner">
     <div class="contact-layout">
       <div class="contact-info">
@@ -360,31 +522,53 @@
           <a class="contact-link" href="#"><i class="ti ti-map-pin"></i>Kitchener, Ontario, Canada</a>
         </div>
       </div>
-      <div class="contact-form">
+      <form class="contact-form" id="contact-form">
         <div class="form-title">Send a message</div>
         <div class="form-row">
-          <label class="form-label">Your name</label>
-          <input class="form-input" type="text" placeholder="Jane Smith">
+          <label class="form-label" for="cf-name">Your name</label>
+          <input class="form-input" type="text" id="cf-name" placeholder="Jane Smith" required>
         </div>
         <div class="form-row">
-          <label class="form-label">Email</label>
-          <input class="form-input" type="email" placeholder="jane@company.com">
+          <label class="form-label" for="cf-email">Email</label>
+          <input class="form-input" type="email" id="cf-email" placeholder="jane@company.com" required>
         </div>
         <div class="form-row">
-          <label class="form-label">Message</label>
-          <textarea class="form-input" placeholder="Hi Henry, I'd love to chat about..."></textarea>
+          <label class="form-label" for="cf-message">Message</label>
+          <textarea class="form-input" id="cf-message" placeholder="Hi Henry, I'd love to chat about..." required></textarea>
         </div>
-        <button class="form-btn">Send message ↗</button>
-      </div>
+        <button class="form-btn" type="submit">Send message ↗</button>
+        <p class="form-hint">Opens your email app, addressed to henryleproduct@gmail.com</p>
+      </form>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-logo">Henry Le</div>
-  <p>© 2026</p>
+  <nav class="footer-nav">
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <p>© 2026 Henry Le. All rights reserved.</p>
 </footer>
+
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('cf-name').value.trim();
+    var email = document.getElementById('cf-email').value.trim();
+    var message = document.getElementById('cf-message').value.trim();
+    var subject = 'Portfolio contact from ' + name;
+    var body = message + '\n\n— ' + name + ' (' + email + ')';
+    var mailto = 'mailto:henryleproduct@gmail.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+    window.location.href = mailto;
+  });
+</script>
 
 </body>
 </html>
