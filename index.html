@@ -16,15 +16,15 @@
       --border:rgba(255,255,255,0.08);--border-hover:rgba(139,109,240,0.5);
       --text:#F4F4F6;--text-sec:#b8bcc8;--muted:#8491a0;
     }
-    html{scroll-behavior:smooth}
-    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
+    html{scroll-behavior:smooth;font-size:17px}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);font-size:16px;line-height:1.6}
 
     /* TOPBAR */
     .topbar{position:fixed;top:0;left:0;right:0;height:56px;background:rgba(24,24,35,0.85);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;z-index:100}
     .topbar-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.5rem;color:var(--text);letter-spacing:-0.02em}
     .topbar-logo span{color:var(--purple-light)}
     .topbar-nav{display:flex;gap:2rem}
-    .topbar-nav a{font-size:0.8rem;color:var(--text-sec);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
+    .topbar-nav a{font-size:0.8rem;font-weight:600;color:var(--text-sec);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s}
     .topbar-nav a:hover{color:var(--cyan)}
     .topbar-cta{position:relative;z-index:1;background:linear-gradient(135deg,var(--purple) 0%,var(--purple-light) 55%,var(--cyan) 100%);color:#fff;border:none;padding:8px 20px;border-radius:8px;font-size:0.78rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;text-decoration:none;letter-spacing:0.01em;
       box-shadow:0 0 0 0 rgba(139,109,240,0.55),0 0 14px 2px rgba(34,211,238,0.3);
@@ -75,6 +75,7 @@
     .hero-photo-frame img{width:100%;height:100%;object-fit:cover;display:block}
     .hero-photo-info{display:flex;flex-direction:column;gap:6px;position:relative;z-index:1}
     .hero-photo-name{font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:700;color:var(--text)}
+    .hero-photo-title{font-size:0.82rem;font-weight:600;color:var(--cyan)}
     .hero-photo-role{font-size:0.78rem;color:var(--text-sec)}
     .hero-photo-badge{display:inline-flex;align-items:center;gap:5px;font-size:0.7rem;color:var(--lime);font-weight:500;background:rgba(60,199,78,0.1);border:0.5px solid rgba(60,199,78,0.3);border-radius:20px;padding:3px 10px;width:fit-content}
     .stat-card{background:var(--surface);border:0.5px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem}
@@ -91,14 +92,14 @@
     .section{padding:5rem 2.5rem}
     .section-inner{max-width:1100px;margin:0 auto}
     .section.alt{background:var(--bg-alt)}
-    .eyebrow{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--cyan);font-weight:500;margin-bottom:0.5rem}
-    .sec-title{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;letter-spacing:-0.03em;color:var(--text);margin-bottom:0.5rem}
-    .sec-sub{font-size:0.88rem;color:var(--muted);margin-bottom:2.5rem}
+    .eyebrow{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--cyan);font-weight:500;margin-bottom:0.5rem}
+    .sec-title{font-family:'Space Grotesk',sans-serif;font-size:2.35rem;font-weight:700;letter-spacing:-0.03em;color:var(--text);margin-bottom:0.5rem}
+    .sec-sub{font-size:0.95rem;color:var(--muted);margin-bottom:2.5rem}
 
     /* COMPANIES BAND */
     .companies-band{padding:3rem 2.5rem;background:var(--bg);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border)}
     .companies-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap}
-    .companies-text{max-width:420px}
+    .companies-text{max-width:520px}
     .companies-text h2{font-family:'Space Grotesk',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:0.5rem}
     .companies-text p{font-size:0.85rem;color:var(--muted)}
     .companies-logos{display:flex;gap:0.75rem;flex-wrap:wrap}
@@ -153,11 +154,22 @@
     a.tag{text-decoration:none;transition:all 0.2s;display:inline-flex;align-items:center;gap:4px}
     a.tag:hover{border-color:var(--purple-light);color:var(--purple-light);background:var(--purple-soft)}
     a.tag i{font-size:11px}
-    .certs-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:1rem}
-    .cert-chip{display:flex;align-items:center;gap:7px;font-size:0.75rem;color:var(--text-sec);padding:8px 12px;background:var(--surface);border:0.5px solid var(--border);border-radius:8px;text-decoration:none;transition:all 0.2s;cursor:pointer}
+    .certs-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:1rem}
+    .cert-chip{display:flex;align-items:center;gap:14px;font-size:0.9rem;font-weight:600;color:var(--text-sec);padding:12px 14px;background:var(--surface);border:0.5px solid var(--border);border-radius:12px;text-decoration:none;transition:all 0.2s;cursor:pointer}
     .cert-chip:hover{border-color:var(--purple-light);color:var(--purple-light)}
-    .cert-chip i{color:var(--purple-light);font-size:14px;flex-shrink:0}
-    .cert-chip .ti-external-link{margin-left:auto;font-size:12px;color:var(--muted)}
+    .cert-chip:hover .cert-badge{transform:scale(1.08)}
+    .cert-badge{width:60px;height:60px;border-radius:50%;object-fit:cover;flex-shrink:0;background:#0d0a1f;box-shadow:0 0 0 2px rgba(255,255,255,0.1);transition:transform 0.2s}
+    .cert-chip .ti-external-link{margin-left:auto;font-size:13px;color:var(--muted)}
+
+    /* SCROLL REVEAL */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+    .reveal:nth-child(2){transition-delay:0.08s}
+    .reveal:nth-child(3){transition-delay:0.16s}
+    .reveal:nth-child(4){transition-delay:0.24s}
+    @media (prefers-reduced-motion: reduce){
+      .reveal{opacity:1;transform:none;transition:none}
+    }
 
     /* DIFFERENTIATORS */
     .diff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
@@ -245,7 +257,6 @@
     <div class="hero-left">
       <div class="hero-badge"><span class="dot"></span>Open to internship opportunities</div>
       <h1>I'm <span class="accent">Henry</span><br>I build <span class="accent-cyan">product solutions</span> that delight users.</h1>
-      <p class="hero-subtitle">IT Business Analyst · Product Owner · Kitchener, ON</p>
       <p class="hero-desc">Translating user pain points into actionable product solutions. Experienced in Agile/Scrum, PRD writing, Figma prototyping, marketing and market research across Canada and Vietnam.</p>
       <div class="hero-btns">
         <a class="btn-primary" href="#contact">Get in touch</a>
@@ -256,10 +267,11 @@
       <div class="hero-photo-row">
         <div class="hero-photo-blob"></div>
         <div class="hero-photo-frame">
-          <img src="henry-le-centered.jpg" alt="Henry Le, IT Business Analyst">
+          <img src="image/henry-le-centered.jpg" alt="Henry Le, IT Business Analyst">
         </div>
         <div class="hero-photo-info">
           <div class="hero-photo-name">Henry Le</div>
+          <div class="hero-photo-title">IT Business Analyst · Product Owner</div>
           <div class="hero-photo-role">Postgraduate Ontario Certificate of Information Technology Business Analysis</div>
           <div class="hero-photo-badge"><i class="ti ti-circle-check-filled"></i>Graduating April 2026</div>
         </div>
@@ -290,12 +302,12 @@
   <div class="companies-inner">
     <div class="companies-text">
       <h2>Organizations I've worked with.</h2>
-      <p>Research, product, and marketing roles across academic and industry teams in Vietnam and Canada.</p>
+      <p>Three-plus years of cross-functional experience — from Market Research Assistant to Marketing, and now IT Business Analyst and Product Owner — across academic and industry teams in Canada and Vietnam.</p>
     </div>
     <div class="companies-logos">
-      <div class="company-logo-card"><img src="Conestoga_College_logo.svg" alt="Conestoga College"></div>
-      <div class="company-logo-card"><img src="ci-research-logo.png" alt="CI Research"></div>
-      <div class="company-logo-card"><img src="gcomm-logo.png" alt="Gcomm Insights and Growth"></div>
+      <div class="company-logo-card"><img src="image/Conestoga_College_logo.svg" alt="Conestoga College"></div>
+      <div class="company-logo-card"><img src="image/ci-research-logo.png" alt="CI Research"></div>
+      <div class="company-logo-card"><img src="image/gcomm-logo.png" alt="Gcomm Insights and Growth"></div>
     </div>
   </div>
 </div>
@@ -314,7 +326,7 @@
         </div>
       </div>
       <div class="exp-list">
-        <div class="exp-item">
+        <div class="exp-item reveal">
           <div class="exp-icon"><i class="ti ti-speakerphone"></i></div>
           <div>
             <div class="exp-meta">May 2025 – Dec 2025 · Ontario, Canada</div>
@@ -328,7 +340,7 @@
             </ul>
           </div>
         </div>
-        <div class="exp-item">
+        <div class="exp-item reveal">
           <div class="exp-icon"><i class="ti ti-chart-bar"></i></div>
           <div>
             <div class="exp-meta">May 2024 – Oct 2024 · Ho Chi Minh, Vietnam</div>
@@ -342,7 +354,7 @@
             </ul>
           </div>
         </div>
-        <div class="exp-item">
+        <div class="exp-item reveal">
           <div class="exp-icon"><i class="ti ti-microphone"></i></div>
           <div>
             <div class="exp-meta">Apr 2023 – Feb 2024 · Ho Chi Minh, Vietnam</div>
@@ -379,7 +391,7 @@
         <div class="exp-icon"><i class="ti ti-certificate"></i></div>
         <div>
           <div class="exp-meta">Graduate Certificate · Jan 2025 – Apr 2026</div>
-          <div class="exp-title">Ontario College Graduate Certificate, Information Technology Business Analysis</div>
+          <div class="exp-title">Ontario College Graduate Certificate in Information Technology Business Analysis</div>
           <div class="exp-org">Conestoga College</div>
         </div>
       </div>
@@ -394,7 +406,7 @@
     <h2 class="sec-title">Case studies</h2>
     <p class="sec-sub">End-to-end product feature design — from user research to MVP scoping.</p>
     <div class="cases-grid">
-      <div class="case-card">
+      <div class="case-card reveal">
         <div class="case-header-band">
           <div class="case-tag">Feature design · Instant messaging</div>
           <div class="case-title"><a class="case-title-link" href="https://drive.google.com/file/d/1Z2cfLSpMioXpTg9h7jljyPU2Wj0WxkeE/view?usp=sharing" target="_blank" rel="noopener">Zalo — Thread feature for desktop app <i class="ti ti-external-link"></i></a></div>
@@ -409,7 +421,7 @@
           </div>
         </div>
       </div>
-      <div class="case-card">
+      <div class="case-card reveal">
         <div class="case-header-band">
           <div class="case-tag">Last-mile UX · E-commerce</div>
           <div class="case-title"><a class="case-title-link" href="https://drive.google.com/file/d/1LwTCtCDqyEq4SQzU8fsh-rYLqS-DoC39/view?usp=sharing" target="_blank" rel="noopener">Shopee — Pickup Nearby You delivery <i class="ti ti-external-link"></i></a></div>
@@ -435,28 +447,28 @@
     <h2 class="sec-title">Skills & tools</h2>
     <p class="sec-sub">A blend of product, research, and data skills built across academic and professional work.</p>
     <div class="skills-layout">
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="skill-card-title"><i class="ti ti-stack"></i>Product & methodology</div>
         <div class="tags">
           <span class="tag">Agile / Scrum</span><span class="tag">User Stories</span><span class="tag">PRD writing</span>
           <span class="tag">MVP scoping</span><span class="tag">Roadmapping</span><span class="tag">Acceptance criteria</span><span class="tag">Product backlog</span>
         </div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="skill-card-title"><i class="ti ti-palette"></i>Design & prototyping</div>
         <div class="tags">
           <span class="tag">Figma</span><span class="tag">User flows</span><span class="tag">Wireframes</span>
           <span class="tag">Mockups</span><a class="tag" href="https://www.figma.com/design/Ugf9fZuiP0RdMQCVvOxzDB/B2B-Impersonation-Fraud-Insurance?node-id=0-1&t=f2SsfcSzrB539acx-1" target="_blank" rel="noopener">UX / UI basics<i class="ti ti-external-link"></i></a><span class="tag">Miro</span>
         </div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="skill-card-title"><i class="ti ti-chart-dots"></i>Research & analytics</div>
         <div class="tags">
           <span class="tag">User research</span><span class="tag">Pain point analysis</span><span class="tag">Quantitative surveys</span>
           <span class="tag">Power BI</span><span class="tag">Tableau</span><span class="tag">MySQL</span><span class="tag">Minitab</span>
         </div>
       </div>
-      <div class="skill-card">
+      <div class="skill-card reveal">
         <div class="skill-card-title"><i class="ti ti-tools"></i>Collaboration tools</div>
         <div class="tags">
           <span class="tag">Jira</span><span class="tag">Confluence</span><span class="tag">Microsoft Visio</span>
@@ -466,12 +478,12 @@
     </div>
     <p class="eyebrow" style="margin-top:2rem">Certifications</p>
     <div class="certs-row">
-      <a class="cert-chip" href="https://www.credly.com/badges/b9d48982-8614-4e64-8606-4878e87e450f/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>Product-led<i class="ti ti-external-link"></i></a>
-      <a class="cert-chip" href="https://www.credly.com/badges/7b7bc2de-9534-48ee-86e1-dc1abc9b670e/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>Product Analytics<i class="ti ti-external-link"></i></a>
-      <a class="cert-chip" href="https://www.credly.com/badges/d78574be-c93f-4a41-b1be-4d0ea21c6ee1/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>Product Discovery<i class="ti ti-external-link"></i></a>
-      <a class="cert-chip" href="https://www.credly.com/badges/9b68eaef-5afe-4960-84dc-33c18b7f4105/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>PM Basics<i class="ti ti-external-link"></i></a>
-      <a class="cert-chip" href="https://www.credly.com/badges/0be0505d-e0b6-499f-8052-e397d2332ee9/public_url" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>AI for PM<i class="ti ti-external-link"></i></a>
-      <a class="cert-chip" href="https://www.linkedin.com/learning/certificates/17cb7bfcff45ff421ff38f56811ad5ae0ca8edd14a9dac1000c1351277b402dd?u=2212217" target="_blank" rel="noopener"><i class="ti ti-certificate"></i>MySQL Advanced<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.credly.com/badges/b9d48982-8614-4e64-8606-4878e87e450f/public_url" target="_blank" rel="noopener"><img class="cert-badge" src="badges/product-led.png" alt="Product-led Certified badge" loading="lazy">Product-led<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.credly.com/badges/7b7bc2de-9534-48ee-86e1-dc1abc9b670e/public_url" target="_blank" rel="noopener"><img class="cert-badge" src="badges/product-analytics.png" alt="Product Analytics Certified badge" loading="lazy">Product Analytics<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.credly.com/badges/d78574be-c93f-4a41-b1be-4d0ea21c6ee1/public_url" target="_blank" rel="noopener"><img class="cert-badge" src="badges/product-discovery.png" alt="Product Discovery Certified badge" loading="lazy">Product Discovery<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.credly.com/badges/9b68eaef-5afe-4960-84dc-33c18b7f4105/public_url" target="_blank" rel="noopener"><img class="cert-badge" src="badges/pm-basics.png" alt="Product Management Basics Certified badge" loading="lazy">PM Basics<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.credly.com/badges/0be0505d-e0b6-499f-8052-e397d2332ee9/public_url" target="_blank" rel="noopener"><img class="cert-badge" src="badges/ai-for-pm.png" alt="AI for Product Management badge" loading="lazy">AI for PM<i class="ti ti-external-link"></i></a>
+      <a class="cert-chip" href="https://www.linkedin.com/learning/certificates/17cb7bfcff45ff421ff38f56811ad5ae0ca8edd14a9dac1000c1351277b402dd?u=2212217" target="_blank" rel="noopener"><img class="cert-badge" src="badges/mysql-advanced.png" alt="MySQL Advanced Certificate badge" loading="lazy">MySQL Advanced<i class="ti ti-external-link"></i></a>
     </div>
   </div>
 </section>
@@ -511,7 +523,7 @@
 <section class="section alt" id="contact">
   <div class="section-inner">
     <div class="contact-layout">
-      <div class="contact-info">
+      <div class="contact-info reveal">
         <p class="eyebrow">Get in touch</p>
         <h2 class="sec-title">Let's connect</h2>
         <p>Looking for an IT Business Analyst or Product Owner intern who brings hands-on research experience and a sharp eye for user pain points? Reach out!</p>
@@ -522,7 +534,7 @@
           <a class="contact-link" href="#"><i class="ti ti-map-pin"></i>Kitchener, Ontario, Canada</a>
         </div>
       </div>
-      <form class="contact-form" id="contact-form">
+      <form class="contact-form reveal" id="contact-form">
         <div class="form-title">Send a message</div>
         <div class="form-row">
           <label class="form-label" for="cf-name">Your name</label>
@@ -568,6 +580,25 @@
       + '&body=' + encodeURIComponent(body);
     window.location.href = mailto;
   });
+
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      el.classList.add('is-visible');
+    });
+  }
 </script>
 
 </body>
